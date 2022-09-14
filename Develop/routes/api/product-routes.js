@@ -21,7 +21,12 @@ router.get('/:id', async(req, res) => {
   try {
     const onePro = await Product.findByPk(req.params.id, {
       include: [{ model: Category }, {model: Tag}],
+    
     })
+    if(!onePro){
+      res.status(404).json({message:'There is no Product with this ID'});
+      return
+    }
       res.json(onePro);
     }
     catch(err) {
@@ -37,14 +42,7 @@ router.post('/', (req, res) => {
       stock: req.body.stock,
       tagIds: [req.body.tagIds]
     })
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
+
     .then((newProduct) => {
       
       res.json(newProduct);
@@ -126,9 +124,13 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((deletedProduct) => {
+      if(!deletedProduct){
+        res.status(404).json({message:'There is no Product with this ID'});
+        return
+      }
       res.json(deletedProduct);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(501).json(err));
 });
 
 module.exports = router;
