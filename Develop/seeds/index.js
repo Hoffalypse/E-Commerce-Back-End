@@ -13,7 +13,7 @@ const seedAll = async () => {
 
   await seedProducts();
   console.log('\n----- PRODUCTS SEEDED -----\n');
-
+ 
   await seedTags();
   console.log('\n----- TAGS SEEDED -----\n');
 
