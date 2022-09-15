@@ -20,10 +20,12 @@ As this is a back-end only app use will need an API design platform such as inso
 - api/products
 - api/tags
 <p>
-Each can also have a "/'interger'" following the route to choose a specific category, product or tag.
+Each can also have a "/'integer'" following the route to choose a specific category, product or tag.
 
 
-[](../../../Old%20CPU/Downloads/E-commerce%20Back%20End.mp4)
+https://user-images.githubusercontent.com/106857564/190351930-b06cedfa-ea35-4fc5-977b-7a94de72f17b.mp4
+
+
 
 
 Link to video on Google Drive 
